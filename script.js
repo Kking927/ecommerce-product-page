@@ -1,1 +1,112 @@
+// ==========================================================================
+// 1. MOBILE SLIDER FUNCTIONALITY
+// ==========================================================================
+const mobileSlides = document.querySelectorAll('.mobile-slide');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+let currentSlideIndex = 0;
 
+function showSlide(index) {
+  // Remove the active class from the current slide
+  mobileSlides[currentSlideIndex].classList.remove('active');
+  
+  // Update the index, looping around if it goes out of bounds
+  if (index >= mobileSlides.length) {
+    currentSlideIndex = 0;
+  } else if (index < 0) {
+    currentSlideIndex = mobileSlides.length - 1;
+  } else {
+    currentSlideIndex = index;
+  }
+  
+  // Add the active class to the new slide
+  mobileSlides[currentSlideIndex].classList.add('active');
+}
+
+// Arrow Event Listeners
+nextBtn.addEventListener('click', () => {
+  showSlide(currentSlideIndex + 1);
+});
+
+prevBtn.addEventListener('click', () => {
+  showSlide(currentSlideIndex - 1);
+});
+
+
+// ==========================================================================
+// 2. DESKTOP THUMBNAIL CLICK FUNCTIONALITY
+// ==========================================================================
+const mainProductImage = document.getElementById('main-product-image');
+const thumbnails = document.querySelectorAll('.thumbnail');
+
+// Array mapping each thumbnail index to its corresponding image URL
+const largeImages = [
+  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-1.jpg?raw=true",
+  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-2.jpg?raw=true",
+  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-3.jpg?raw=true",
+  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-4.jpg?raw=true"
+];
+
+thumbnails.forEach((thumbnail, index) => {
+  thumbnail.addEventListener('click', () => {
+    // 1. Remove the active border state from all thumbnails
+    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+    
+    // 2. Add the active border state to the clicked thumbnail
+    thumbnail.classList.add('active');
+    
+    // 3. Swap the main image source with the corresponding high-res URL
+    mainProductImage.src = largeImages[index];
+  });
+});
+
+
+// ==========================================================================
+// 3. QUANTITY SELECTOR & SHOPPING CART CONTROLLER
+// ==========================================================================
+const minusBtn = document.querySelector('#minus-btn');
+const plusBtn = document.querySelector('#plus-btn');
+const quantityValue = document.querySelector('.quantity-value');
+const addToCartBtn = document.querySelector('.add-to-cart-btn');
+const cartBadge = document.querySelector('.cart-badge');
+const productPriceDisplay = document.querySelector('#product-price'); // New selector
+
+let currentCount = 0; 
+const BASE_PRICE = 125; // The price for a single pair of sneakers
+
+// Helper function to update the price layout display
+function updatePriceDisplay() {
+  if (currentCount > 0) {
+    const totalPrice = BASE_PRICE * currentCount;
+    productPriceDisplay.textContent = `$${totalPrice}`;
+  } else {
+    // Fallback to default price if quantity selection is 0
+    productPriceDisplay.textContent = `$${BASE_PRICE}`;
+  }
+}
+
+// 1. Plus Button logic
+plusBtn.addEventListener('click', () => {
+  currentCount++;
+  quantityValue.textContent = currentCount;
+  updatePriceDisplay(); // Recalculate price
+});
+
+// 2. Minus Button logic
+minusBtn.addEventListener('click', () => {
+  if (currentCount > 0) {
+    currentCount--;
+    quantityValue.textContent = currentCount;
+    updatePriceDisplay(); // Recalculate price
+  }
+});
+
+// 3. Add to Cart Badge logic
+addToCartBtn.addEventListener('click', () => {
+  if (currentCount > 0) {
+    cartBadge.textContent = currentCount;
+    cartBadge.classList.add('visible'); 
+  } else {
+    cartBadge.classList.remove('visible'); 
+  }
+});
