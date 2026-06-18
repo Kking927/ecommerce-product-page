@@ -41,10 +41,10 @@ const thumbnails = document.querySelectorAll('.thumbnail');
 
 // Array mapping each thumbnail index to its corresponding image URL
 const largeImages = [
-  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-1.jpg?raw=true",
-  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-2.jpg?raw=true",
-  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-3.jpg?raw=true",
-  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-4.jpg?raw=true"
+  "images/image-product-1.jpg",
+  "images/image-product-2.jpg",
+  "images/image-product-3.jpg",
+  "images/image-product-4.jpg"
 ];
 
 thumbnails.forEach((thumbnail, index) => {
