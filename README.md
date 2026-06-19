@@ -28,7 +28,10 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+<div style="display: flex; align-items: center; justify-content: space-between;">
+  <img src="images/screenshot.png" alt="First Screenshot" width="48%">
+  <img src="images/screenshot2.png" alt="Second Screenshot" width="48%">
+</div>
 
 ### Links
 
