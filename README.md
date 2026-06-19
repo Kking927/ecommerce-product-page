@@ -26,7 +26,7 @@ Users should be able to:
 - Add items to the cart
 - View the cart and remove items from it
 
-### Screenshot
+### Screenshots
 
 <div style="display: flex; align-items: center; justify-content: space-between;">
   <img src="images/screenshot.png" alt="First Screenshot" width="48%">
