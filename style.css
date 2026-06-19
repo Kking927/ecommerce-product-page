@@ -23,6 +23,10 @@
 
   /*   Borders */
   --border-subtle: hsla(220, 14%, 75%, 0.4);
+
+  /*   Hover Effect */
+  --hover-transition: transform 0.15s ease, opacity 0.15s ease;
+  --hover-lift-transform: scale(1.05) translateY(-2px);
 }
 
 /* ==========================================================================
@@ -54,11 +58,6 @@ button {
   background: none;
   padding: 0;
   cursor: pointer;
-  transition: transform 0.15s ease;
-}
-
-button:hover {
-  transform: scale(1.05) translateY(-2px);
 }
 
 a:focus-visible,
@@ -109,8 +108,8 @@ body {
 }
 
 .header-logo:hover {
-  transform: translate(6px, -2px); 
-  filter: brightness(1.2); 
+  transform: translate(6px, -2px);
+  filter: brightness(1.2);
 }
 
 .header-icons {
@@ -150,6 +149,11 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: var(--hover-transition);
+}
+
+.shopping-cart:hover {
+  transform: var(--hover-lift-transform);
 }
 
 .cart-badge {
@@ -175,6 +179,11 @@ body {
   height: clamp(2rem, 4vw + 1rem, 3.5rem);
   object-fit: cover;
   flex-shrink: 0;
+  transition: var(--hover-transition);
+}
+
+.profile-img:hover {
+  transform: var(--hover-lift-transform);
 }
 
 /* Main Layout Grid Area */
@@ -242,7 +251,6 @@ body {
   right: 1.625rem;
 }
 
-/* Hide Desktop structural container completely on phones */
 .desktop-gallery-container {
   display: none;
 }
@@ -362,12 +370,19 @@ body {
 }
 
 .add-to-cart-btn img {
-  filter: brightness(0); /* Forces the SVG icon to pure black #000 */
+  filter: brightness(0);
   opacity: var(--black-75);
 }
 
 /* ==========================================================================
-   DESKTOP RESPONSIVE LAYOUT CONTEXT
+   LIGHTBOX MODAL DEFAULT STATE (MOBILE FIRST)
+   ========================================================================== */
+.lightbox-dialog {
+  display: none;
+}
+
+/* ==========================================================================
+   Media Queries Desktop Layout
    ========================================================================== */
 @media (min-width: 768px) {
   .container {
@@ -396,7 +411,6 @@ body {
     list-style: none;
   }
 
-  /* --- Dynamic Grid Activation --- */
   .product {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -405,7 +419,6 @@ body {
     padding-inline: 2rem;
   }
 
-  /* Remove mobile slider framework on desktop */
   .mobile-slider-container {
     display: none;
   }
@@ -419,7 +432,16 @@ body {
   }
 
   .main-image-btn {
+    background-color: var(--white);
+    display: block;
     width: 100%;
+    cursor: pointer;
+    transition: var(--hover-transition);
+  }
+
+  .main-image-btn:hover {
+    opacity: 0.4;
+    transform: var(--hover-lift-transform);
   }
 
   .main-image-btn img {
@@ -439,20 +461,22 @@ body {
     border-radius: 10px;
     overflow: hidden;
     flex: 1;
-  }
-
-  .thumbnail img {
-    width: 100%;
-    display: block;
+    transition: var(--hover-transition);
   }
 
   .thumbnail:hover {
-    opacity: 0.6;
+    opacity: 0.4;
+    transform: var(--hover-lift-transform);
   }
 
   .thumbnail.active {
     border-color: var(--orange);
     opacity: 0.6;
+  }
+
+  .thumbnail img {
+    width: 100%;
+    display: block;
   }
 
   /* --- Text Content Side Alignments --- */
@@ -491,6 +515,120 @@ body {
   .add-to-cart-btn {
     flex: 2;
     width: auto;
+  }
+
+  /* --- Lightbox Dialog Activation --- */
+  .lightbox-dialog {
+    border: none;
+    background: transparent;
+    max-width: 34.375rem;
+    width: 100%;
+    padding: 0;
+    overflow: visible;
+    margin: auto;
+  }
+
+  .lightbox-dialog[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lightbox-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  .lightbox-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .close-lightbox-btn {
+    align-self: flex-end;
+    transition: transform 0.15s ease;
+  }
+
+  .close-lightbox-btn img {
+    filter: brightness(0) invert(1);
+    width: 1.25rem;
+  }
+
+  .close-lightbox-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .close-lightbox-btn img:hover {
+    filter: invert(52%) sepia(85%) saturate(1900%) hue-rotate(345deg)
+      brightness(101%) contrast(101%);
+  }
+
+  /* Structural Slider controls */
+  .lightbox-slider-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .lightbox-main-img-box img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  /* Overlapping Desktop Arrows */
+  .lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--white);
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+
+  .lightbox-prev {
+    left: -1.75rem;
+  }
+
+  .lightbox-next {
+    right: -1.75rem;
+  }
+
+  /* Lightbox Thumbnail list layouts */
+  .lightbox-thumbnail-list {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .lightbox-thumb {
+    border: 2px solid transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--white);
+  }
+
+  .lightbox-thumb img {
+    width: 100%;
+    display: block;
+    transition: opacity 0.2s ease;
+  }
+
+  .lightbox-thumb:hover img {
+    opacity: 0.4;
+  }
+
+  .lightbox-thumb.active {
+    border-color: var(--orange);
+  }
+  .lightbox-thumb.active img {
+    opacity: 0.3;
   }
 }
 
