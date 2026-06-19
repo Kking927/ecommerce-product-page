@@ -640,22 +640,34 @@ body {
    ACCESSIBILITY: REDUCED MOTION PREFERENCES
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  html {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
     scroll-behavior: auto;
   }
 
-  button,
-  a,
-  .add-to-cart-btn,
-  .slider-arrow {
-    animation-duration: 0ms;
-    animation-iteration-count: 1;
-    transition-duration: 0ms;
+  :root {
+    --hover-transition: none;
+    --hover-lift-transform: none;
   }
 
-  button:hover,
+  .header-logo:hover,
+  .nav-list a:hover,
+  .shopping-cart:hover,
+  .profile-img:hover,
   .slider-arrow:hover,
-  .add-to-cart-btn:hover {
+  .main-image-btn:hover,
+  .thumbnail:hover,
+  .add-to-cart-btn:hover,
+  .close-lightbox-btn:hover {
     transform: none;
+  }
+
+  .header-logo:hover {
+    filter: none;
+    opacity: 0.8;
   }
 }
