@@ -41,10 +41,10 @@ const thumbnails = document.querySelectorAll('.thumbnail');
 
 // Array mapping each thumbnail index to its corresponding image URL
 const largeImages = [
-  "images/image-product-1.jpg",
-  "images/image-product-2.jpg",
-  "images/image-product-3.jpg",
-  "images/image-product-4.jpg"
+  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-1.jpg?raw=true",
+  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-2.jpg?raw=true",
+  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-3.jpg?raw=true",
+  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-4.jpg?raw=true"
 ];
 
 thumbnails.forEach((thumbnail, index) => {
@@ -110,3 +110,54 @@ addToCartBtn.addEventListener('click', () => {
     cartBadge.classList.remove('visible'); 
   }
 });
+
+// ==========================================================================
+// 4. LIGHTBOX MODAL MANAGEMENT SYSTEM
+// ==========================================================================
+const desktopMainImgBtn = document.querySelector('.main-image-btn');
+const lightboxModal = document.getElementById('lightbox-modal');
+const closeModalBtn = document.getElementById('close-modal');
+
+const lightboxMainImage = document.getElementById('lightbox-main-image');
+const lightboxThumbs = document.querySelectorAll('.lightbox-thumb');
+const lightboxPrev = document.querySelector('.lightbox-prev');
+const lightboxNext = document.querySelector('.lightbox-next');
+
+let lightboxIndex = 0;
+
+// Open modal upon desktop large image click
+desktopMainImgBtn.addEventListener('click', () => {
+  lightboxModal.showModal();
+  lightboxModal.focus(); // Prevents browser from auto-focusing the close button
+});
+
+// Close modal
+closeModalBtn.addEventListener('click', () => {
+  lightboxModal.close();
+});
+
+// Synchronize state tracker
+function updateLightboxView(index) {
+  // Loop bounds checks
+  if (index >= largeImages.length) lightboxIndex = 0;
+  else if (index < 0) lightboxIndex = largeImages.length - 1;
+  else lightboxIndex = index;
+
+  // Swap active thumbnails states 
+  lightboxThumbs.forEach(thumb => thumb.classList.remove('active'));
+  lightboxThumbs[lightboxIndex].classList.add('active');
+
+  // Update image window path asset
+  lightboxMainImage.src = largeImages[lightboxIndex];
+}
+
+// Click thumbnail triggers
+lightboxThumbs.forEach((thumb, idx) => {
+  thumb.addEventListener('click', () => {
+    updateLightboxView(idx);
+  });
+});
+
+// Next and Previous arrows controllers 
+lightboxNext.addEventListener('click', () => updateLightboxView(lightboxIndex + 1));
+lightboxPrev.addEventListener('click', () => updateLightboxView(lightboxIndex - 1));
