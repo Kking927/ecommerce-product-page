@@ -41,10 +41,10 @@ const thumbnails = document.querySelectorAll('.thumbnail');
 
 // Array mapping each thumbnail index to its corresponding image URL
 const largeImages = [
-  "images/image-product-1.jpg",
-  "images/image-product-2.jpg",
-  "images/image-product-3.jpg",
-  "images/image-product-4.jpg"
+  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-1.jpg?raw=true",
+  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-2.jpg?raw=true",
+  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-3.jpg?raw=true",
+  "https://github.com/Kking927/ecommerce-product-page/blob/main/images/image-product-4.jpg?raw=true"
 ];
 
 thumbnails.forEach((thumbnail, index) => {
@@ -128,7 +128,7 @@ let lightboxIndex = 0;
 // Open modal upon desktop large image click
 desktopMainImgBtn.addEventListener('click', () => {
   lightboxModal.showModal();
-  lightboxModal.focus(); // Prevents browser from auto-focusing the close button
+  lightboxModal.focus(); // Shift the browser's initial focus boundary away from the close button
 });
 
 // Close modal
@@ -161,3 +161,27 @@ lightboxThumbs.forEach((thumb, idx) => {
 // Next and Previous arrows controllers 
 lightboxNext.addEventListener('click', () => updateLightboxView(lightboxIndex + 1));
 lightboxPrev.addEventListener('click', () => updateLightboxView(lightboxIndex - 1));
+
+// ==========================================================================
+// 5. MOBILE HAMBURGER SIDEBAR OVERLAY CONTROLLER
+// ==========================================================================
+const openMenuBtn = document.getElementById('open-menu-btn');
+const closeMenuBtn = document.getElementById('close-menu-btn');
+const mobileSidebar = document.getElementById('mobile-sidebar');
+
+// Open Menu Event
+openMenuBtn.addEventListener('click', () => {
+  mobileSidebar.classList.add('open');
+});
+
+// Close Menu Event
+closeMenuBtn.addEventListener('click', () => {
+  mobileSidebar.classList.remove('open');
+});
+
+// Close Menu if user clicks on the dimmed background wrapper
+mobileSidebar.addEventListener('click', (e) => {
+  if (e.target === mobileSidebar) {
+    mobileSidebar.classList.remove('open');
+  }
+});
