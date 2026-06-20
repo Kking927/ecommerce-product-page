@@ -331,6 +331,7 @@ body {
   flex-direction: column;
   gap: 1rem;
   width: 100%;
+  margin-block-start: 1rem;
 }
 
 .quantity-selector {
@@ -339,7 +340,7 @@ body {
   justify-content: space-between;
   background-color: var(--light-grayish-blue);
   border-radius: 10px;
-  padding: 1rem;
+  padding-block: 1.75rem;
   width: 100%;
 }
 
@@ -362,7 +363,7 @@ body {
   background-color: var(--orange);
   color: var(--black-75);
   font-weight: var(--font-weight-bold);
-  padding: 1rem;
+  padding-block: 1.75rem;
   border-radius: 10px;
   width: 100%;
   box-shadow: 0 20px 40px var(--pale-orange);
