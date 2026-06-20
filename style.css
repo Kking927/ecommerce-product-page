@@ -337,7 +337,7 @@ body {
   justify-content: space-between;
   background-color: var(--light-grayish-blue);
   border-radius: 10px;
-  padding: 1.75rem;
+  padding: 1.25rem;
   width: 100%;
 }
 
@@ -356,11 +356,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.25rem;
   background-color: var(--orange);
   color: var(--black-75);
   font-weight: var(--font-weight-bold);
-  padding: 1.75rem;
+  padding: 1rem;
   border-radius: 10px;
   width: 100%;
   box-shadow: 0 20px 40px var(--pale-orange);
