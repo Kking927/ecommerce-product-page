@@ -123,7 +123,6 @@ body {
    ========================================================================== */
 .container {
   width: 100%;
-  max-width: 1100px;
   margin: 0 auto;
   padding-inline: 1rem;
 }
@@ -234,11 +233,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding-inline: 0;
-  padding-block: clamp(2rem, 6vw, 5rem);
 }
 
 .product-gallery {
@@ -300,7 +294,7 @@ body {
 .product-info {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.8125rem, 1.5vw + 0.5rem, 1.5rem);
+  gap: clamp(0.8125rem, 1vw + 0.5rem, 1rem);
   padding: 1.5rem;
 }
 
@@ -328,6 +322,7 @@ body {
 .product-description {
   color: var(--dark-grayish-blue);
   line-height: 1.6;
+  min-width: 50ch;
 }
 
 .price-container {
@@ -472,8 +467,6 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: clamp(2rem, 5vw + 1rem, 8rem);
-    padding-inline: 2rem;
   }
 
   .mobile-slider-container {
@@ -537,15 +530,6 @@ body {
   }
 
   /* --- Text Content Side Alignments --- */
-  .product-info {
-    gap: 2.5rem;
-    padding: 0;
-  }
-
-  .title-group {
-    gap: 1.5rem;
-  }
-
   .price-container {
     flex-direction: column;
     align-items: flex-start;
@@ -1026,7 +1010,7 @@ body {
   justify-content: space-between;
   background-color: var(--light-grayish-blue);
   border-radius: 10px;
-  padding-block: .75rem;
+  padding-block: 0.75rem;
   width: 100%;
 }
 
@@ -1049,7 +1033,7 @@ body {
   background-color: var(--orange);
   color: var(--black-75);
   font-weight: var(--font-weight-bold);
-  padding-block: .75rem;
+  padding-block: 0.75rem;
   border-radius: 10px;
   width: 100%;
   box-shadow: 0 20px 40px var(--pale-orange);
@@ -1121,7 +1105,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: clamp(2rem, 5vw + 1rem, 8rem);
+    gap: clamp(2rem, 5vw + 1rem, 5rem);
     padding-inline: 2rem;
   }
 
