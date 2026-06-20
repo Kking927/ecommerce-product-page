@@ -39,7 +39,8 @@
   box-sizing: border-box;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -88,7 +89,7 @@ body {
    ========================================================================== */
 .container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1150px;
   margin: 0 auto;
   padding-inline: 1rem;
 }
@@ -289,7 +290,6 @@ body {
 .product-description {
   color: var(--dark-grayish-blue);
   line-height: 1.6;
-  min-width: 50ch;
 }
 
 .price-container {
@@ -340,7 +340,7 @@ body {
   justify-content: space-between;
   background-color: var(--light-grayish-blue);
   border-radius: 10px;
-  padding-block: 1.75rem;
+  padding: 1.75rem;
   width: 100%;
 }
 
@@ -363,7 +363,7 @@ body {
   background-color: var(--orange);
   color: var(--black-75);
   font-weight: var(--font-weight-bold);
-  padding-block: 1.75rem;
+  padding: 1.75rem;
   border-radius: 10px;
   width: 100%;
   box-shadow: 0 20px 40px var(--pale-orange);
@@ -726,7 +726,6 @@ body {
    ========================================================================== */
 .container {
   width: 100%;
-  max-width: 1100px;
   margin: 0 auto;
   padding-inline: 1rem;
 }
@@ -838,7 +837,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  max-width: 1100px;
   margin: 0 auto;
   padding-inline: 0;
   padding-block: clamp(2rem, 6vw, 5rem);
@@ -854,9 +852,7 @@ body {
 .mobile-slider-container {
   display: block;
   position: relative;
-  width: calc(
-    100% + 3rem
-  ); /* Expands the width to account for negative margins */
+  width: calc(100% + 3rem);
   margin-inline: -1.5rem;
 }
 
@@ -1074,7 +1070,6 @@ body {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: clamp(2rem, 5vw + 1rem, 5rem);
-    padding-inline: 2rem;
   }
 
   .mobile-slider-container {
@@ -1085,8 +1080,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    max-width: 28.125rem;
-    width: 100%;
   }
 
   .main-image-btn {
@@ -1143,11 +1136,6 @@ body {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 0.5rem;
-    margin-block: 0;
-  }
-
-  .current-price-box {
-    margin-block-end: 0;
   }
 
   /* --- Interactive Button Row Re-aligns Side-by-Side --- */
