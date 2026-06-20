@@ -89,9 +89,9 @@ body {
    ========================================================================== */
 .container {
   width: 100%;
-  max-width: 1150px;
+  max-width: 72rem;
   margin: 0 auto;
-  padding-inline: 1rem;
+  padding-inline: clamp(0.5rem, 2vw, 1rem);
 }
 
 /* Header */
@@ -101,6 +101,55 @@ body {
   justify-content: space-between;
   gap: 2rem;
   padding-block: clamp(1rem, 2.5vw + 0.5rem, 2rem);
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION SIDEBAR & OVERLAY
+   ========================================================================== */
+
+/* 1. Mobile Menu Layout Default State (Hidden off-screen/dimmed) */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75); /* Dimmed backdrop */
+  z-index: 100;
+  display: none; 
+}
+
+/* 2. Class toggled by JavaScript to show the menu */
+.nav-overlay.open {
+  display: block;
+}
+
+/* 3. The white drawer panel that slides or pops open */
+.nav-sidebar-content {
+  background-color: var(--white);
+  width: 70%;
+  max-width: 18.75rem;
+  height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* 4. Positioning for the 'X' Close Button inside the drawer */
+.close-menu-button {
+  align-self: flex-start;
+  margin-block-start: 0.5rem;
+}
+
+/* 5. Mobile stacked navigation list items */
+.nav-overlay .nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: var(--very-dark-blue);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.125rem;
 }
 
 .header-left {
@@ -113,6 +162,7 @@ body {
   display: inline-block;
   cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
+  order: 2;
 }
 
 .header-logo:hover {
@@ -146,10 +196,6 @@ body {
 .nav-list a:hover {
   color: var(--very-dark-blue);
   transform: scale(1.05) translateY(-2px);
-}
-
-.header-logo {
-  order: 2;
 }
 
 .shopping-cart {
@@ -214,7 +260,7 @@ body {
   position: relative;
   width: calc(
     100% + 3rem
-  ); /* Expands the width to account for negative margins */
+  );
   margin-inline: -1.5rem;
 }
 
@@ -749,6 +795,7 @@ body {
   display: inline-block;
   cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
+  order: 2;
 }
 
 .header-logo:hover {
@@ -782,10 +829,6 @@ body {
 .nav-list a:hover {
   color: var(--very-dark-blue);
   transform: scale(1.05) translateY(-2px);
-}
-
-.header-logo {
-  order: 2;
 }
 
 .shopping-cart {
@@ -1038,7 +1081,7 @@ body {
 /* ==========================================================================
    Media Queries Desktop Layout
    ========================================================================== */
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .container {
     padding-inline: 2rem;
   }
@@ -1238,7 +1281,7 @@ body {
 
   .lightbox-arrow:hover {
     transform: translateY(-50%) scale(1.1);
-    opacity: 0.9; /* Subtle opacity shift so the button change is clean */
+    opacity: 0.9;
   }
 
   /* Lightbox Thumbnail list layouts */
