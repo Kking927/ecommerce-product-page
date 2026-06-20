@@ -21,17 +21,25 @@
         <img src="https://raw.githubusercontent.com/Kking927/ecommerce-product-page/93bbd7878195427df6ee3ee04c3baaa2f2b602c7/images/logo.svg" alt="Sneakers logo image" class="header-logo">
 
         <nav class="nav">
-          <button type="button" class="menu-button" aria-label="Open menu">
+          <button type="button" class="menu-button" id="open-menu-btn" aria-label="Open menu">
             <img src="https://raw.githubusercontent.com/Kking927/ecommerce-product-page/93bbd7878195427df6ee3ee04c3baaa2f2b602c7/images/icon-menu.svg" alt="">
           </button>
 
-          <ul class="nav-list">
-            <li><a href="#">Collections</a></li>
-            <li><a href="#">Men</a></li>
-            <li><a href="#">Women</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
+          <div class="nav-overlay" id="mobile-sidebar">
+            <div class="nav-sidebar-content">
+              <button type="button" class="close-menu-button" id="close-menu-btn" aria-label="Close menu">
+                <img src="https://raw.githubusercontent.com/Kking927/ecommerce-product-page/main/images/icon-close.svg" alt="">
+              </button>
+
+              <ul class="nav-list">
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+          </div>
         </nav>
       </div>
 
