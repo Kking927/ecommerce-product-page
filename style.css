@@ -86,7 +86,7 @@ body {
    ========================================================================== */
 .container {
   width: 100%;
-  max-width: 75rem;
+  max-width: 74rem;
   margin: 0 auto;
   padding-inline: clamp(0.5rem, 2vw, 1rem);
 }
@@ -97,7 +97,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  padding-block: clamp(1rem, 2.5vw + 0.5rem, 1.75rem);
+  padding-block: clamp(1rem, 2.5vw + 0.5rem, 1.5rem);
 }
 
 .header-left {
@@ -389,7 +389,7 @@ body {
   background-color: var(--light-grayish-blue);
   border-radius: 10px;
   width: 100%;
-  padding: 0.875rem;
+  padding: 1rem;
 }
 
 .qty-btn:hover {
@@ -411,7 +411,7 @@ body {
   background-color: var(--orange);
   color: var(--black-75);
   font-weight: var(--font-weight-bold);
-  padding: 0.875rem;
+  padding: 1rem;
   border-radius: 10px;
   width: 100%;
   box-shadow: 0 20px 40px var(--pale-orange);
