@@ -98,8 +98,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: clamp(1rem, 3vw, 2.5rem);
-  padding-block: clamp(0.5rem, 2.5vw + 0.5rem, 1rem)
-    clamp(1rem, 2.5vw + 0.5rem, 1.5rem);
+  padding-block: clamp(1rem, 2.5vw + 0.5rem, 1.5rem);
 }
 
 .header-left {
@@ -424,14 +423,14 @@ body {
   transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
-.add-to-cart-btn img {
-  filter: brightness(0);
-  opacity: var(--black-75);
-}
-
 .add-to-cart-btn:hover {
   background-color: var(--bg-cart);
   transform: scale(1.02);
+}
+
+.add-to-cart-btn img {
+  opacity: var(--black-75);
+  filter: brightness(0);
 }
 
 /* ==========================================================================
