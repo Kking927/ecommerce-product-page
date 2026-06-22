@@ -319,7 +319,7 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  margin-block-end: clamp(1rem, 1vw + 0.75rem, 1rem);
+  margin-block-end: clamp(1rem, 1vw + 0.75rem, 1.125rem);
 }
 
 .company-tag {
