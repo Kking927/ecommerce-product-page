@@ -136,7 +136,7 @@ body {
 
 .close-menu-button {
   align-self: flex-end;
-  margin-block-start: 0.5rem;
+  margin-block-start: clamp(0.25rem, 1vh, 0.5rem);
   transition: var(--hover-transition);
 }
 
@@ -420,14 +420,14 @@ body {
   transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
-.add-to-cart-btn:hover {
-  background-color: var(--bg-cart);
-  transform: scale(1.02);
-}
-
 .add-to-cart-btn img {
   filter: brightness(0);
   opacity: var(--black-75);
+}
+
+.add-to-cart-btn:hover {
+  background-color: var(--bg-cart);
+  transform: scale(1.02);
 }
 
 /* ==========================================================================
